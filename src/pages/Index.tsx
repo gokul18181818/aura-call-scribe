@@ -34,7 +34,7 @@ const Index = () => {
       date: "2024-01-15",
       duration: "45:32",
       participants: ["John Doe", "Sarah Wilson", "Mike Chen"],
-      status: "completed",
+      status: "completed" as const,
       hasTranscript: true,
       hasSummary: true,
       actionItems: 3
@@ -45,7 +45,7 @@ const Index = () => {
       date: "2024-01-14",
       duration: "28:15",
       participants: ["Team Alpha"],
-      status: "processing",
+      status: "processing" as const,
       hasTranscript: false,
       hasSummary: false,
       actionItems: 0
@@ -56,7 +56,7 @@ const Index = () => {
       date: "2024-01-12",
       duration: "1:12:45",
       participants: ["Alex Johnson", "Lisa Park"],
-      status: "completed",
+      status: "completed" as const,
       hasTranscript: true,
       hasSummary: true,
       actionItems: 7

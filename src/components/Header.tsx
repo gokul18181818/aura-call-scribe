@@ -15,8 +15,13 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { useLocation } from "react-router-dom";
 
 export const Header = () => {
+  const location = useLocation();
+
+  const isActive = (path: string) => location.pathname === path;
+
   return (
     <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-blue-100/50">
       <div className="container mx-auto px-6 py-4">
@@ -36,13 +41,34 @@ export const Header = () => {
 
           {/* Navigation */}
           <nav className="hidden md:flex items-center gap-8">
-            <a href="#" className="text-slate-600 hover:text-blue-600 font-medium transition-colors">
+            <a 
+              href="/" 
+              className={`font-medium transition-colors ${
+                isActive('/') 
+                  ? 'text-blue-600' 
+                  : 'text-slate-600 hover:text-blue-600'
+              }`}
+            >
               Dashboard
             </a>
-            <a href="#" className="text-slate-600 hover:text-blue-600 font-medium transition-colors">
+            <a 
+              href="/calls" 
+              className={`font-medium transition-colors ${
+                isActive('/calls') 
+                  ? 'text-blue-600' 
+                  : 'text-slate-600 hover:text-blue-600'
+              }`}
+            >
               Calls
             </a>
-            <a href="#" className="text-slate-600 hover:text-blue-600 font-medium transition-colors">
+            <a 
+              href="/analytics" 
+              className={`font-medium transition-colors ${
+                isActive('/analytics') 
+                  ? 'text-blue-600' 
+                  : 'text-slate-600 hover:text-blue-600'
+              }`}
+            >
               Analytics
             </a>
             <a href="#" className="text-slate-600 hover:text-blue-600 font-medium transition-colors">
