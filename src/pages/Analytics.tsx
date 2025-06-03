@@ -21,14 +21,15 @@ import {
   ChartTooltipContent 
 } from "@/components/ui/chart";
 import { 
-  BarChart, 
-  Bar, 
-  XAxis, 
-  YAxis, 
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
   ResponsiveContainer,
   LineChart,
   Line,
   PieChart as RechartsPieChart,
+  Pie,
   Cell,
   Area,
   AreaChart
@@ -197,11 +198,18 @@ const Analytics = () => {
                 <ResponsiveContainer width="100%" height="100%">
                   <RechartsPieChart>
                     <ChartTooltip content={<ChartTooltipContent />} />
-                    <RechartsPieChart data={participantData} cx="50%" cy="50%" outerRadius={80}>
+                    <Pie
+                      data={participantData}
+                      dataKey="value"
+                      nameKey="name"
+                      cx="50%"
+                      cy="50%"
+                      outerRadius={80}
+                    >
                       {participantData.map((entry, index) => (
                         <Cell key={`cell-${index}`} fill={entry.color} />
                       ))}
-                    </RechartsPieChart>
+                    </Pie>
                   </RechartsPieChart>
                 </ResponsiveContainer>
               </ChartContainer>
